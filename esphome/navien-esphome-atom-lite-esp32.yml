@@ -5,7 +5,7 @@ substitutions:
   board: m5stack-atom
   friendly_name: Navien
   project_name: Navien.ATOM-Lite-ESP32
-  project_version: "0.0.0.1"
+  project_version: "0.0.0.2"
   # NEW – tell navien-base.yml where to load the custom component from
   external_component_source: "github://chintito4ever/Navien@ncbh"
 packages:
