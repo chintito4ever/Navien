@@ -2,8 +2,8 @@
 
 substitutions:
   #   # https://esphome.io/guides/configuration-types.html#substitutions
-  device_name: navien-boiler-1fl # hostname & entity_id
-  friendly_name: "Navien Boiler 1FL" # Displayed in HA frontend
+  device_name: navien-combi-boiler-1fl # hostname & entity_id
+  friendly_name: "Navien Combi Boiler 1FL" # Displayed in HA frontend
   device_description: "Navien Gas Water Heater"
   tx_pin: GPIO15
   rx_pin: GPIO13
