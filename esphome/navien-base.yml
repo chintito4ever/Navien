@@ -2,14 +2,14 @@
 
 substitutions:
   #   # https://esphome.io/guides/configuration-types.html#substitutions
-  device_name: navien-boiler-2fl # hostname & entity_id
-  friendly_name: "Navien Boiler 2FL" # Displayed in HA frontend
+  device_name: navien-boiler-1fl # hostname & entity_id
+  friendly_name: "Navien Boiler 1FL" # Displayed in HA frontend
   device_description: "Navien Gas Water Heater"
   tx_pin: GPIO15
   rx_pin: GPIO13
   platform: esp8266
   board: d1_mini
-  external_component_source: github://chintito4ever/Navien@npe
+  external_component_source: github://chintito4ever/Navien@ncbh
 
 # NEW: load the custom `navien` component from your fork
 external_components:
