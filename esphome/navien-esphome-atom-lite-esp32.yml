@@ -11,6 +11,10 @@ substitutions:
 packages:
   navien: !include navien-base.yml
 
+esp32:
+  framework:
+    type: esp-idf
+
 logger:
   level: INFO
   baud_rate: 0 #disable logging over uart
@@ -24,9 +28,9 @@ button:
     name: NavienHotButton
     
 light:
-  - platform: fastled_clockless
+  - platform: esp32_rmt_led_strip
     chipset: SK6812
     pin: 27
     num_leds: 1
     rgb_order: GRB
-    name: "FastLED Light"
+    name: "LED Light"

@@ -21,6 +21,8 @@ esphome:
   # https://esphome.io/components/esphome
   name: ${device_name}
   friendly_name: ${friendly_name}
+  # Avoid whitespace in build/project paths across host setups
+  build_path: /tmp/esphome_build_${device_name}
   project:
     name: "${project_name}"
     version: "${project_version}"
@@ -144,7 +146,7 @@ binary_sensor:
 
 switch:
   - platform: navien
-    name: Power On/Off
+    name: Power On-Off
 
 button:
   - platform: restart
