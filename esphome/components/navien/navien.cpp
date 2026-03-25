@@ -84,10 +84,18 @@ void Navien::on_gas(const GAS_DATA & gas){
   this->state.gas.ht_return_temp = NavienLink::t2c(gas.ht_return_temp_raw);
 
 
-  this->state.gas.accumulated_gas_usage = gas.cumulative_gas_hi << 8 | gas.cumulative_gas_lo;
+  const uint16_t raw_accumulated_gas = (gas.cumulative_gas_hi << 8) | gas.cumulative_gas_lo;
+  const uint16_t raw_current_gas = (gas.current_gas_hi << 8) | gas.current_gas_lo;
+
+  this->state.gas.accumulated_gas_usage = raw_accumulated_gas;
   this->state.gas.accumulated_gas_usage_cuft =
       static_cast<float>(this->state.gas.accumulated_gas_usage) * 3.53146667f;
-  this->state.gas.current_gas_usage = gas.current_gas_hi << 8 | gas.current_gas_lo;
+  this->state.gas.current_gas_usage = raw_current_gas;
+
+  ESP_LOGD(TAG, "Gas raw bytes current=[0x%02X 0x%02X] accumulated=[0x%02X 0x%02X] decoded current=%u accumulated=%u",
+           gas.current_gas_hi, gas.current_gas_lo,
+           gas.cumulative_gas_hi, gas.cumulative_gas_lo,
+           raw_current_gas, raw_accumulated_gas);
 
   this->state.controller_version = gas.controller_version_hi << 8 | gas.controller_version_lo;
   this->state.panel_version = gas.panel_version_hi << 8 | gas.panel_version_lo;
