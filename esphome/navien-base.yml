@@ -122,7 +122,7 @@ sensor:
       name: Current Gas Usage
       filters:
         - lambda: return x * 39.6800;
-      unit_of_measurement: "BTU"
+      unit_of_measurement: "BTU/h"
       accuracy_decimals: 1
     ht_supply_temp:
       name: Heating Supply Temp
