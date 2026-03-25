@@ -16,7 +16,7 @@ esp32:
     type: arduino
 
 logger:
-  level: INFO
+  level: DEBUG
   baud_rate: 0 #disable logging over uart
   
 dashboard_import:
