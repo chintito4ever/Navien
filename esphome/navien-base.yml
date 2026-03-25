@@ -121,7 +121,7 @@ sensor:
     gas_current:
       name: Current Gas Usage
       filters:
-        - lambda: return x * 3.9680;
+        - lambda: return x * 39.6800;
       unit_of_measurement: "BTU"
       accuracy_decimals: 1
     ht_supply_temp:
