@@ -21,7 +21,6 @@ Navien = navien_ns.class_("Navien", cg.PollingComponent, uart.UARTDevice)
 
 from esphome.const import (
     CONF_ID, UNIT_EMPTY, ICON_EMPTY,
-    CONF_ICON,
     CONF_LATITUDE,
     CONF_LONGITUDE,
     CONF_SENSOR,
@@ -53,7 +52,7 @@ from esphome.const import (
 #)
 
 UNIT_LPM  = "l/m"
-UNIT_BTU = "BTU"
+UNIT_BTU = "BTU/h"
 
 CONF_INLET_TEMPERATURE  = "inlet_temperature"
 CONF_OUTLET_TEMPERATURE = "outlet_temperature"
@@ -165,27 +164,22 @@ async def to_code(config):
 
     if CONF_TARGET_TEMPERATURE in config:
         sens = await sensor.new_sensor(config[CONF_TARGET_TEMPERATURE])
-        cg.add(sens.set_icon(config[CONF_TARGET_TEMPERATURE].get(CONF_ICON, "mdi:coolant-temperature")))
         cg.add(var.set_target_temp_sensor(sens))
         
     if CONF_INLET_TEMPERATURE in config:
         sens = await sensor.new_sensor(config[CONF_INLET_TEMPERATURE])
-        cg.add(sens.set_icon(config[CONF_INLET_TEMPERATURE].get(CONF_ICON, "mdi:water-thermometer")))
         cg.add(var.set_inlet_temp_sensor(sens))
         
     if CONF_OUTLET_TEMPERATURE in config:
         sens = await sensor.new_sensor(config[CONF_OUTLET_TEMPERATURE])
-        cg.add(sens.set_icon(config[CONF_OUTLET_TEMPERATURE].get(CONF_ICON, "mdi:water-thermometer-outline")))
         cg.add(var.set_outlet_temp_sensor(sens))
 
     if CONF_WATER_FLOW in config:
         sens = await sensor.new_sensor(config[CONF_WATER_FLOW])
-        cg.add(sens.set_icon(config[CONF_WATER_FLOW].get(CONF_ICON, "mdi:waves-arrow-right")))
         cg.add(var.set_water_flow_sensor(sens))
 
     if CONF_WATER_UTILIZATION in config:
         sens = await sensor.new_sensor(config[CONF_WATER_UTILIZATION])
-        cg.add(sens.set_icon(config[CONF_WATER_UTILIZATION].get(CONF_ICON, "mdi:water-percent")))
         cg.add(var.set_water_utilization_sensor(sens))
 
     if CONF_SYS_STATUS in config:
@@ -202,7 +196,6 @@ async def to_code(config):
 
     if CONF_GAS_CURRENT in config:
         sens = await sensor.new_sensor(config[CONF_GAS_CURRENT])
-        cg.add(sens.set_icon(config[CONF_GAS_CURRENT].get(CONF_ICON, "mdi:gas-burner")))
         cg.add(var.set_gas_current_sensor(sens))
 
     if CONF_HT_SUPPLY_TEMP in config:

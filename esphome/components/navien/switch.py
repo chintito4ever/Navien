@@ -15,8 +15,6 @@ AUTO_LOAD = ["switch", "sensor"]
 
 navien_ns = cg.esphome_ns.namespace("navien")
 
-print ("Hello compojnents switch - ns")
-
 #DEPENDENCIES = ["sensor.navien"]
 
 #navien_ns = cg.esphome_ns.namespace(NAVIEN_NAMESPACE)
