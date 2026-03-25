@@ -13,7 +13,7 @@ packages:
 
 esp32:
   framework:
-    type: esp-idf
+    type: arduino
 
 logger:
   level: INFO
